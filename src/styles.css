@@ -167,10 +167,17 @@ p {
   width: 42px;
   height: 42px;
   place-items: center;
+  overflow: hidden;
   border-radius: 50%;
   color: var(--ink);
-  background: var(--cream);
+  background: var(--ink);
   font-weight: 900;
+}
+
+.brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand small {
@@ -1078,7 +1085,11 @@ footer a {
 
   .nav-shell {
     top: 10px;
-    width: calc(100% - 20px);
+    right: 10px;
+    left: 10px;
+    width: auto;
+    grid-template-columns: auto 1fr auto;
+    transform: none;
   }
 
   .brand small,
@@ -1086,13 +1097,65 @@ footer a {
     display: none;
   }
 
+  .menu-button {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    z-index: 2;
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    justify-self: end;
+    grid-column: 3;
+    color: var(--cream);
+    border-color: var(--line);
+    background: rgba(244, 239, 228, 0.06);
+    transform: translateY(-50%);
+  }
+
+  .hero,
+  .about,
+  .stack,
+  .journey,
+  .services,
+  .proof,
+  .contact {
+    text-align: center;
+  }
+
+  .hero-copy,
+  .hero-visual,
+  .about-panel,
+  .section-header,
+  .project-intro,
+  .contact-inner {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .eyebrow,
+  .section-kicker,
+  .hero-actions,
+  .contact-actions,
+  .chip-list,
+  .project-tags {
+    justify-content: center;
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    flex-wrap: wrap;
+    font-size: 0.68rem;
+  }
+
   .hero-title {
-    font-size: clamp(3.35rem, 15.5vw, 4.45rem);
+    font-size: clamp(3rem, 13.6vw, 3.7rem);
     line-height: 0.84;
   }
 
   .hero-copy {
-    width: min(100%, 350px);
+    width: min(100%, 300px);
   }
 
   .hero-subtitle {
@@ -1117,7 +1180,7 @@ footer a {
   }
 
   .hero-visual {
-    width: min(100%, 350px);
+    width: min(100%, 300px);
     min-height: 390px;
     overflow: hidden;
   }

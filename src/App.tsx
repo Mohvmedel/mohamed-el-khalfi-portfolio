@@ -332,7 +332,9 @@ function Navigation({
   return (
     <header className="nav-shell">
       <a className="brand" href="#top" aria-label="Mohamed El Khalfi home">
-        <span>MEK</span>
+        <span>
+          <img src="/logo-portfolio.png" alt="" />
+        </span>
         <small>Web & Mobile Developer</small>
       </a>
       <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
