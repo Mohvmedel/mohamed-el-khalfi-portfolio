@@ -27,52 +27,68 @@ const skills = {
   Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS"],
   Backend: ["Laravel", "Spring Boot", "ASP.NET Core", "PHP", "Java", "C#", "Python", "REST APIs"],
   Mobile: ["Flutter"],
+  "Management Systems": [
+    "Dashboards",
+    "CRUD systems",
+    "Role management",
+    "Workflow management",
+    "Logistics systems",
+    "Business process tracking",
+  ],
   Databases: ["MySQL", "SQL Server", "Oracle"],
-  "DevOps & AI": ["Docker", "Kubernetes", "Git", "GitHub", "CI/CD", "Postman", "Jira", "Trello", "OpenCV", "YOLO"],
+  "DevOps & Tools": ["Docker", "Kubernetes", "Git", "GitHub", "CI/CD", "Postman", "Jira", "Trello"],
+  "AI / Computer Vision": ["OpenCV", "YOLO"],
 };
 
 const projects = [
   {
     title: "BeautyDoc",
-    stack: "E-commerce Website",
+    stack: "E-commerce / Web Platform",
     description:
-      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
+      "A modern e-commerce website for beauty and skincare products, focused on product presentation, responsive design, and a smooth shopping experience.",
     accent: "teal",
   },
   {
     title: "DriveLux",
-    stack: "Car Rental Website",
+    stack: "Booking / Business Website",
     description:
       "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
     accent: "copper",
   },
   {
     title: "Brocli",
-    stack: "Laravel, Flutter, MySQL, API REST",
+    stack: "Web & Mobile Platform · Laravel, Flutter, MySQL, API REST",
     description:
-      "A web and mobile service platform connecting clients with service providers, including API integration, user management, service requests, and data exchange.",
+      "A service platform connecting clients with service providers, including web features, Flutter mobile app context, API integration, user management, service requests, and data exchange.",
     accent: "violet",
   },
   {
     title: "Delivery Company Design System",
-    stack: "Full Product Design System",
+    stack: "Design System / Delivery Platform",
     description:
-      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and platform UI components for a consistent product experience.",
+      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and platform UI components for a consistent delivery ecosystem.",
     accent: "lime",
   },
   {
-    title: "Intelligent HSE Monitoring Application",
-    stack: "Python, OpenCV, YOLO, ASP.NET Core, Angular, SQL Server, API REST",
+    title: "Logistics and Transport Management Application",
+    stack: "Management System / Logistics · ASP.NET, Flutter",
     description:
-      "An intelligent safety monitoring system using computer vision to detect non-compliance cases and support real-time operational tracking from video streams.",
+      "A logistics and transport management system designed to track operations, organize flows, manage transport processes, and improve internal business operations.",
     accent: "teal",
   },
   {
-    title: "Logistics and Transport Management Application",
-    stack: "ASP.NET, Flutter",
+    title: "Intelligent HSE Monitoring Application",
+    stack: "AI / Safety Management System · Python, OpenCV, YOLO, ASP.NET Core, Angular, SQL Server, API REST",
     description:
-      "A logistics and transport management solution designed to track operations, organize flows, and improve transport management.",
+      "An intelligent HSE system for monitoring safety measures using computer vision, detecting non-compliance cases, and supporting real-time operational tracking from video streams.",
     accent: "copper",
+  },
+  {
+    title: "Mission Order Management Web Application",
+    stack: "Internal Management System · Angular, Laravel",
+    description:
+      "A web application for managing, tracking, and organizing mission orders inside an organization.",
+    accent: "violet",
   },
 ];
 
@@ -80,12 +96,12 @@ const journey = [
   [
     "2025",
     "LEAR - Tanger / Stage PFE",
-    "Analyzed, designed, and developed a logistics and transport management application from February 2025 to July 2025.",
+    "Worked on the analysis, design, and development of a logistics and transport management system from February 2025 to July 2025.",
   ],
   [
     "2024",
     "BROCLICONNECT - Rabat / Internship",
-    "Contributed to a service platform across frontend, backend, API integration, UI improvements, and Flutter mobile app context.",
+    "Contributed to a service platform with frontend, backend, API integration, UI improvements, and Flutter mobile application context.",
   ],
   [
     "2023",
@@ -100,24 +116,32 @@ const journey = [
   [
     "Education",
     "ISMAGI - Rabat",
-    "Ingénieur d'État en Développement Informatique, with preparation at ISMAGI and a Baccalauréat Sciences Physiques from Lycée Ahmed Chawki in Salé.",
+    "Ingénieur d'État en Développement Informatique, October 2022 - July 2025. Classe Préparatoire at ISMAGI, October 2020 - July 2022.",
+  ],
+  [
+    "Academic",
+    "Lycée Ahmed Chawki - Salé",
+    "Baccalauréat Sciences Physiques, September 2021 - June 2022.",
+  ],
+  [
+    "Proof",
+    "Certifications & Languages",
+    "IBM Docker Essentials, IBM Kubernetes Operators Advanced. Languages: Arabic, French, English, Tamazight.",
   ],
 ];
 
 const services = [
-  "E-commerce websites",
-  "Car rental and booking websites",
-  "Admin dashboards",
-  "Business management systems",
-  "Flutter mobile applications",
-  "Backend APIs",
-  "Delivery platform interfaces",
-  "AI / computer vision solutions",
+  "Web Platforms - E-commerce, booking, service, and business websites",
+  "Mobile Applications - Flutter apps connected to backend APIs",
+  "Management Systems - Logistics, transport, orders, users, roles, and workflows",
+  "Admin Dashboards - Activity monitoring, data management, and performance tracking",
+  "Backend APIs - Secure REST APIs, authentication, roles, and business logic",
+  "AI / Computer Vision Solutions - Detection and monitoring with OpenCV and YOLO",
 ];
 
 const proof = [
-  ["6", "focused project areas"],
-  ["State", "engineering degree in software development"],
+  ["7", "featured digital solution projects"],
+  ["Full", "web, mobile, API, database, and management systems"],
   ["IBM", "Docker and Kubernetes certifications"],
   ["4", "languages: Arabic, French, English, Tamazight"],
 ];
@@ -302,11 +326,12 @@ function Hero() {
           <span>El Khalfi</span>
         </h1>
         <p className="hero-subtitle" data-reveal>
-          Full-Stack Engineer · Web & Mobile App Developer
+          Full-Stack Engineer
         </p>
         <p className="hero-description" data-reveal>
-          I build modern web platforms, Flutter mobile apps, and business management systems with
-          clean interfaces, secure APIs, and scalable databases.
+          Web · Mobile · Management Systems. I build modern digital solutions for businesses, from
+          web platforms and Flutter mobile apps to management systems, admin dashboards, secure APIs,
+          and scalable databases.
         </p>
         <div className="hero-actions" data-reveal>
           <a className="button primary" href="#projects">
@@ -330,9 +355,9 @@ function Hero() {
           </div>
           <pre>{`const engineer = {
   name: "Mohamed El Khalfi",
-  focus: ["web platforms", "mobile apps", "business systems"],
+  focus: ["web", "mobile", "management systems"],
   stack: ["Laravel", "Flutter", "ASP.NET Core", "Angular"],
-  builds: "secure, scalable digital products"
+  builds: "complete digital solutions"
 };`}</pre>
           <div className="terminal-status">
             <span>build passing</span>
@@ -355,20 +380,19 @@ function About() {
       </div>
       <div className="about-grid">
         <h2 data-reveal>
-          Practical engineering with a polished product eye.
+          Web platforms, mobile applications, and management systems.
         </h2>
         <div className="about-panel" data-reveal>
           <p>
             I am an Ingénieur d'État en Développement Informatique based in Salé, Morocco. I design
-            and develop complete digital solutions, from backend APIs and databases to responsive web
-            interfaces and mobile applications. My work focuses on reliability, performance,
-            usability, and real business needs.
+            and develop complete digital solutions adapted to real business needs, including web
+            applications, mobile apps, management systems, backend APIs, databases, dashboards, and
+            deployment workflows.
           </p>
           <div className="studio-map">
-            <span>Web Apps</span>
-            <span>Mobile Apps</span>
-            <span>Secure APIs</span>
-            <span>AI Vision</span>
+            <span>Web Platforms: e-commerce, booking, service apps</span>
+            <span>Mobile Applications: Flutter apps connected to APIs</span>
+            <span>Management Systems: logistics, orders, workflows</span>
           </div>
         </div>
       </div>
@@ -377,7 +401,7 @@ function About() {
 }
 
 function Stack() {
-  const icons = [Code2, Server, Braces, Database, ShieldCheck];
+  const icons = [Code2, Server, Braces, Database, Database, ShieldCheck, ShieldCheck];
 
   return (
     <section className="stack section" id="stack" data-pattern="magnetic-cards">
@@ -479,7 +503,7 @@ function Services() {
     <section className="services section" data-pattern="sticky-stack">
       <div className="services-sticky" data-reveal>
         <span className="section-kicker">05 / What I Can Build</span>
-        <h2>Useful systems for teams that need software to work.</h2>
+        <h2>What I Build</h2>
       </div>
       <div className="service-list">
         {services.map((service, index) => (
@@ -508,8 +532,9 @@ function Proof() {
           <ShieldCheck size={34} />
           <span>Credibility through practical engineering proof</span>
           <p>
-            Focused experience across web platforms, Flutter apps, business systems, databases, and
-            AI / computer vision solutions.
+            Focused experience across web applications, mobile applications, management systems,
+            admin dashboards, backend APIs, database-driven platforms, delivery and logistics
+            systems, and AI / computer vision solutions.
           </p>
         </div>
       </div>
@@ -530,7 +555,7 @@ function Contact() {
     <section className="contact section" id="contact" data-pattern="reveal-on-scroll">
       <div className="contact-inner" data-reveal>
         <Sparkles size={28} />
-        <h2>Let's build a reliable digital product.</h2>
+        <h2>Let's build a reliable digital solution.</h2>
         <div className="contact-actions">
           <a href="mailto:mohamed.elkhalfi@example.com" className="button primary">
             <Mail size={18} />
@@ -546,13 +571,13 @@ function Contact() {
           </a>
         </div>
         <p>
-          I'm open to opportunities and freelance projects in web development, mobile apps,
-          dashboards, APIs, and business platforms.
+          I'm open to opportunities and freelance projects in web platforms, mobile apps, management
+          systems, dashboards, APIs, and business solutions.
         </p>
       </div>
       <footer>
         <span>Mohamed El Khalfi</span>
-        <span>Full-Stack Engineer · Web & Mobile App Developer</span>
+        <span>Full-Stack Engineer · Web · Mobile · Management Systems</span>
         <a href="#top">Back to top</a>
       </footer>
     </section>
@@ -561,7 +586,7 @@ function Contact() {
 
 function FloatingContact() {
   const whatsappMessage = encodeURIComponent(
-    "Hello Mohamed, I saw your portfolio and would like to discuss a web, mobile, or business platform project with you."
+    "Hello Mohamed, I saw your portfolio and would like to discuss a web platform, mobile app, management system, or business solution with you."
   );
 
   return (
