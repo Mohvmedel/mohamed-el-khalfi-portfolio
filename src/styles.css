@@ -466,10 +466,24 @@ pre {
   margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-.stack-grid {
+.section-subtitle {
+  max-width: 680px;
+}
+
+.stack-architecture {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.stack-architecture::before {
+  position: absolute;
+  inset: 32px 0 auto;
+  z-index: -1;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
 }
 
 .stack-card,
@@ -484,18 +498,64 @@ pre {
 }
 
 .stack-card {
-  min-height: 360px;
+  position: relative;
+  grid-column: span 4;
+  display: grid;
+  align-content: start;
+  min-height: 330px;
   padding: 1.25rem;
   transform-style: preserve-3d;
+}
+
+.stack-card:nth-child(1),
+.stack-card:nth-child(2),
+.stack-card:nth-child(3) {
+  grid-column: span 4;
+}
+
+.stack-card:nth-child(4),
+.stack-card:nth-child(5),
+.stack-card:nth-child(6),
+.stack-card:nth-child(7) {
+  grid-column: span 3;
+  min-height: 300px;
 }
 
 .stack-card svg {
   color: var(--teal);
 }
 
+.stack-node {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stack-node span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--teal);
+  background: rgba(244, 239, 228, 0.045);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .stack-card h3 {
   margin-top: 1rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.stack-card p {
+  margin-bottom: 1.2rem;
+  font-size: 0.96rem;
+  line-height: 1.55;
 }
 
 .chip-list {
@@ -526,24 +586,41 @@ pre {
   margin: 0 auto 3rem;
 }
 
-.project-track {
-  display: flex;
+.project-bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.2rem;
-  width: max-content;
-  padding: 0 max(20px, calc((100vw - 1180px) / 2)) 5rem;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 5rem;
 }
 
 .project-card {
   display: grid;
   grid-template-rows: 1fr auto;
-  width: min(74vw, 560px);
-  min-height: 620px;
+  grid-column: span 4;
+  width: 100%;
+  min-height: 560px;
   overflow: hidden;
+}
+
+.project-card.featured {
+  grid-column: span 6;
+  min-height: 640px;
+}
+
+.project-card.medium {
+  grid-column: span 6;
+}
+
+.project-card.technical {
+  grid-column: span 6;
+  min-height: 520px;
 }
 
 .project-mockup {
   position: relative;
-  min-height: 300px;
+  min-height: 250px;
   padding: 1rem;
   background:
     radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.12), transparent 11rem),
@@ -592,9 +669,17 @@ pre {
 }
 
 .mockup-grid i {
+  display: grid;
+  align-items: end;
   min-height: 92px;
+  padding: 0.8rem;
   border-radius: 12px;
+  color: rgba(244, 239, 228, 0.78);
   background: rgba(244, 239, 228, 0.15);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .mockup-grid i:first-child {
@@ -603,7 +688,8 @@ pre {
 
 .project-content {
   display: grid;
-  gap: 1rem;
+  align-content: start;
+  gap: 0.85rem;
   padding: 1.35rem;
 }
 
@@ -617,6 +703,35 @@ pre {
 
 .project-content small {
   color: var(--muted);
+}
+
+.project-content strong {
+  color: var(--cream);
+  font-size: 0.92rem;
+}
+
+.project-contribution {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.35rem;
+}
+
+.project-tags span {
+  padding: 0.42rem 0.58rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(244, 239, 228, 0.045);
+  font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .journey-list {
@@ -898,8 +1013,24 @@ footer a {
     inset: 30px auto auto 0;
   }
 
-  .stack-grid {
+  .stack-architecture,
+  .project-bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stack-card,
+  .stack-card:nth-child(1),
+  .stack-card:nth-child(2),
+  .stack-card:nth-child(3),
+  .stack-card:nth-child(4),
+  .stack-card:nth-child(5),
+  .stack-card:nth-child(6),
+  .stack-card:nth-child(7),
+  .project-card,
+  .project-card.featured,
+  .project-card.medium,
+  .project-card.technical {
+    grid-column: span 1;
   }
 
   .projects-scroll {
@@ -1011,7 +1142,8 @@ footer a {
   }
 
   .studio-map,
-  .stack-grid,
+  .stack-architecture,
+  .project-bento,
   .proof-grid {
     grid-template-columns: 1fr;
   }
@@ -1020,7 +1152,10 @@ footer a {
     min-height: auto;
   }
 
-  .project-card {
+  .project-card,
+  .project-card.featured,
+  .project-card.medium,
+  .project-card.technical {
     min-height: 520px;
   }
 

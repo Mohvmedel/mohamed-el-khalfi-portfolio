@@ -23,72 +23,111 @@ gsap.registerPlugin(ScrollTrigger);
 
 const navItems = ["About", "Stack", "Projects", "Experience", "Contact"];
 
-const skills = {
-  Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS"],
-  Backend: ["Laravel", "Spring Boot", "ASP.NET Core", "PHP", "Java", "C#", "Python", "REST APIs"],
-  Mobile: ["Flutter"],
-  "Management Systems": [
-    "Dashboards",
-    "CRUD systems",
-    "Role management",
-    "Workflow management",
-    "Logistics systems",
-    "Business process tracking",
-  ],
-  Databases: ["MySQL", "SQL Server", "Oracle"],
-  "DevOps & Tools": ["Docker", "Kubernetes", "Git", "GitHub", "CI/CD", "Postman", "Jira", "Trello"],
-  "AI / Computer Vision": ["OpenCV", "YOLO"],
-};
+const stackLayers = [
+  {
+    title: "Interface Layer",
+    description: "Responsive web interfaces and user experiences.",
+    technologies: ["React", "Angular", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    title: "Backend Layer",
+    description: "Secure APIs, authentication, business logic, and server-side systems.",
+    technologies: ["Laravel", "Spring Boot", "ASP.NET Core", "PHP", "Java", "C#", "Python", "REST APIs"],
+  },
+  {
+    title: "Mobile Layer",
+    description: "Flutter mobile apps connected to backend APIs and business workflows.",
+    technologies: ["Flutter", "API Integration", "Mobile UI", "Driver Apps", "Service Apps"],
+  },
+  {
+    title: "Management Systems Layer",
+    description: "Dashboards, CRUD systems, workflow management, logistics tracking, and role-based platforms.",
+    technologies: ["Dashboards", "CRUD", "Role Management", "Workflows", "Logistics Systems"],
+  },
+  {
+    title: "Data Layer",
+    description: "Database design, structured data, and business information management.",
+    technologies: ["MySQL", "SQL Server", "Oracle"],
+  },
+  {
+    title: "Deployment Layer",
+    description: "Version control, containers, CI/CD, and deployment workflows.",
+    technologies: ["Git", "GitHub", "Docker", "Kubernetes", "CI/CD", "Postman"],
+  },
+  {
+    title: "AI / Vision Layer",
+    description: "Computer vision and intelligent detection systems.",
+    technologies: ["Python", "OpenCV", "YOLO"],
+  },
+];
 
 const projects = [
   {
     title: "BeautyDoc",
-    stack: "E-commerce / Web Platform",
+    type: "E-commerce Website",
+    category: "E-commerce / Web Platform",
     description:
-      "A modern e-commerce website for beauty and skincare products, focused on product presentation, responsive design, and a smooth shopping experience.",
+      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
+    contribution:
+      "Built a business-ready shopping experience with structured product presentation and responsive pages.",
+    tags: ["E-commerce", "Web Platform", "Responsive UI"],
     accent: "teal",
+    size: "featured",
   },
   {
     title: "DriveLux",
-    stack: "Booking / Business Website",
+    type: "Car Rental Website",
+    category: "Booking / Business Website",
     description:
       "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
+    contribution: "Created a clear customer journey for browsing rental vehicles and understanding services.",
+    tags: ["Car Rental", "Booking", "Business Website"],
     accent: "copper",
+    size: "medium",
   },
   {
     title: "Brocli",
-    stack: "Web & Mobile Platform · Laravel, Flutter, MySQL, API REST",
+    type: "Web & Mobile Service Platform",
+    category: "Service Platform / Mobile App",
     description:
       "A service platform connecting clients with service providers, including web features, Flutter mobile app context, API integration, user management, service requests, and data exchange.",
+    contribution: "Contributed to frontend, backend, API integration, UI improvements, and mobile application context.",
+    tags: ["Laravel", "Flutter", "MySQL", "API REST"],
     accent: "violet",
+    size: "featured",
   },
   {
     title: "Delivery Company Design System",
-    stack: "Design System / Delivery Platform",
+    type: "Full Product Design System",
+    category: "Delivery Platform / Design System",
     description:
-      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and platform UI components for a consistent delivery ecosystem.",
+      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and reusable platform UI components.",
+    contribution: "Designed a consistent product experience across merchant, driver, and platform interfaces.",
+    tags: ["Design System", "Merchant Website", "Driver App", "UI System"],
     accent: "lime",
+    size: "medium",
   },
   {
-    title: "Logistics and Transport Management Application",
-    stack: "Management System / Logistics · ASP.NET, Flutter",
+    title: "Logistics & Transport Management",
+    type: "Management System",
+    category: "Logistics / Business Management",
     description:
       "A logistics and transport management system designed to track operations, organize flows, manage transport processes, and improve internal business operations.",
+    contribution: "Worked on analysis, database structure, functional modules, testing, and improvement of the solution.",
+    tags: ["ASP.NET", "Flutter", "Management System"],
     accent: "teal",
+    size: "technical",
   },
   {
-    title: "Intelligent HSE Monitoring Application",
-    stack: "AI / Safety Management System · Python, OpenCV, YOLO, ASP.NET Core, Angular, SQL Server, API REST",
+    title: "Intelligent HSE Monitoring",
+    type: "AI / Computer Vision System",
+    category: "Safety / AI Management System",
     description:
-      "An intelligent HSE system for monitoring safety measures using computer vision, detecting non-compliance cases, and supporting real-time operational tracking from video streams.",
+      "An intelligent HSE system for monitoring safety measures using computer vision, detecting non-compliance cases, and supporting real-time operational tracking.",
+    contribution: "Built an AI-oriented solution using computer vision models and a structured web system.",
+    tags: ["Python", "OpenCV", "YOLO", "ASP.NET Core", "Angular"],
     accent: "copper",
-  },
-  {
-    title: "Mission Order Management Web Application",
-    stack: "Internal Management System · Angular, Laravel",
-    description:
-      "A web application for managing, tracking, and organizing mission orders inside an organization.",
-    accent: "violet",
+    size: "technical",
   },
 ];
 
@@ -401,29 +440,36 @@ function About() {
 }
 
 function Stack() {
-  const icons = [Code2, Server, Braces, Database, Database, ShieldCheck, ShieldCheck];
+  const icons = [Code2, Server, Braces, ShieldCheck, Database, ArrowUpRight, Sparkles];
 
   return (
     <section className="stack section" id="stack" data-pattern="magnetic-cards">
       <div className="section-header" data-reveal>
         <span className="section-kicker">02 / Technology Stack</span>
-        <h2>Tools for building complete products.</h2>
+        <h2>Tools for building complete digital solutions.</h2>
+        <p className="section-subtitle">
+          From interface design to backend APIs, mobile apps, databases, and deployment workflows.
+        </p>
       </div>
-      <div className="stack-grid">
-        {Object.entries(skills).map(([group, items], index) => {
+      <div className="stack-architecture">
+        {stackLayers.map((layer, index) => {
           const Icon = icons[index];
           return (
             <motion.article
               className="stack-card"
-              key={group}
+              key={layer.title}
               data-reveal
               whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
             >
-              <Icon size={28} />
-              <h3>{group}</h3>
+              <div className="stack-node">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <Icon size={24} />
+              </div>
+              <h3>{layer.title}</h3>
+              <p>{layer.description}</p>
               <div className="chip-list">
-                {items.map((item) => (
+                {layer.technologies.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
@@ -441,11 +487,15 @@ function Projects() {
       <div className="project-intro">
         <span className="section-kicker">03 / Featured Projects</span>
         <h2>Selected builds with real product shape.</h2>
+        <p className="section-subtitle">
+          A focused selection of web platforms, mobile applications, management systems, and business
+          solutions.
+        </p>
       </div>
-      <div className="project-track">
+      <div className="project-bento">
         {projects.map((project, index) => (
           <motion.article
-            className={`project-card ${project.accent}`}
+            className={`project-card ${project.accent} ${project.size}`}
             key={project.title}
             whileHover={{ y: -12 }}
             transition={{ type: "spring", stiffness: 240, damping: 22 }}
@@ -456,18 +506,25 @@ function Projects() {
                 <span />
                 <span />
               </div>
-              <div className="mockup-grid">
-                <i />
-                <i />
-                <i />
-                <i />
+              <div className="mockup-grid" aria-hidden="true">
+                <i>{project.type}</i>
+                <i>{project.category}</i>
+                <i>{project.tags[0]}</i>
+                <i>{project.tags[1]}</i>
               </div>
             </div>
             <div className="project-content">
               <span className="project-index">0{index + 1}</span>
+              <small>{project.category}</small>
               <h3>{project.title}</h3>
+              <strong>{project.type}</strong>
               <p>{project.description}</p>
-              <small>{project.stack}</small>
+              <p className="project-contribution">{project.contribution}</p>
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
           </motion.article>
         ))}
