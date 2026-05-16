@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,83 +10,116 @@ import {
   Code2,
   Database,
   Download,
-  Github,
-  Linkedin,
   Mail,
   Menu,
   MessageCircle,
   Server,
   ShieldCheck,
   Sparkles,
-  Terminal,
   X,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const navItems = ["About", "Stack", "Projects", "Journey", "Contact"];
+const navItems = ["About", "Stack", "Projects", "Experience", "Contact"];
 
 const skills = {
-  Frontend: ["React.js", "Vue.js", "Angular", "JavaScript", "HTML", "CSS", "Bootstrap", "Tailwind CSS"],
-  Backend: ["Laravel", "PHP", "ASP.NET", "Django", "Spring Boot", "REST APIs", "JWT Authentication"],
-  Database: ["MySQL", "SQL"],
-  Tools: ["Git", "GitHub", "Vite", "Axios", "Postman", "VS Code", "Eclipse"],
+  Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS"],
+  Backend: ["Laravel", "Spring Boot", "ASP.NET Core", "PHP", "Java", "C#", "Python", "REST APIs"],
+  Mobile: ["Flutter"],
+  Databases: ["MySQL", "SQL Server", "Oracle"],
+  "DevOps & AI": ["Docker", "Kubernetes", "Git", "GitHub", "CI/CD", "Postman", "Jira", "Trello", "OpenCV", "YOLO"],
 };
 
 const projects = [
   {
-    title: "USkin E-commerce",
-    stack: "Laravel, Vue.js 3, Vite, Axios, MySQL",
+    title: "BeautyDoc",
+    stack: "E-commerce Website",
     description:
-      "Modern e-commerce platform with product browsing, cart, wishlist, authentication, admin management, multilingual support, and responsive UI.",
+      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
     accent: "teal",
   },
   {
-    title: "Evo Mart",
-    stack: "Spring Boot, Angular, JWT, MySQL",
+    title: "DriveLux",
+    stack: "Car Rental Website",
     description:
-      "E-commerce web application with secure authentication, product management, REST API backend, and Angular frontend.",
+      "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
     accent: "copper",
   },
   {
-    title: "Dental Center",
-    stack: "React, Vue.js, Laravel API structure",
+    title: "Brocli",
+    stack: "Laravel, Flutter, MySQL, API REST",
     description:
-      "Dental clinic management web app with structured components, clean UI, and modular frontend architecture.",
+      "A web and mobile service platform connecting clients with service providers, including API integration, user management, service requests, and data exchange.",
     accent: "violet",
   },
   {
-    title: "Port Truck Management",
-    stack: "Laravel, SQL, HTML, CSS",
+    title: "Delivery Company Design System",
+    stack: "Full Product Design System",
     description:
-      "Application for managing truck entries and exits in a port, including driver information, vehicle registration, trailers, entry dates, exit dates, and stay duration.",
+      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and platform UI components for a consistent product experience.",
     accent: "lime",
+  },
+  {
+    title: "Intelligent HSE Monitoring Application",
+    stack: "Python, OpenCV, YOLO, ASP.NET Core, Angular, SQL Server, API REST",
+    description:
+      "An intelligent safety monitoring system using computer vision to detect non-compliance cases and support real-time operational tracking from video streams.",
+    accent: "teal",
+  },
+  {
+    title: "Logistics and Transport Management Application",
+    stack: "ASP.NET, Flutter",
+    description:
+      "A logistics and transport management solution designed to track operations, organize flows, and improve transport management.",
+    accent: "copper",
   },
 ];
 
 const journey = [
-  ["2019", "Baccalaureate", "Built the academic base for technical problem solving."],
-  ["2022", "DEUG in Networks and Telecommunications", "Developed systems thinking across infrastructure, networks, and web foundations."],
-  ["2024", "Built Evo Mart", "Delivered a full-stack e-commerce project with secure APIs and a structured frontend."],
-  ["2025", "Business applications", "Developed management tools, dashboards, data flows, and practical web platforms."],
-  ["Today", "Full-stack engineer", "Focused on useful, scalable, and polished modern web platforms."],
+  [
+    "2025",
+    "LEAR - Tanger / Stage PFE",
+    "Analyzed, designed, and developed a logistics and transport management application from February 2025 to July 2025.",
+  ],
+  [
+    "2024",
+    "BROCLICONNECT - Rabat / Internship",
+    "Contributed to a service platform across frontend, backend, API integration, UI improvements, and Flutter mobile app context.",
+  ],
+  [
+    "2023",
+    "CRI - Rabat / Internship",
+    "Worked on IT asset management tools, mission order management, and IT support from June 2023 to September 2023.",
+  ],
+  [
+    "2022",
+    "SWALL DISTRIBUTION - Rabat / Internship",
+    "Developed a payment management application and maintained a pre-sales application from June 2022 to August 2022.",
+  ],
+  [
+    "Education",
+    "ISMAGI - Rabat",
+    "Ingénieur d'État en Développement Informatique, with preparation at ISMAGI and a Baccalauréat Sciences Physiques from Lycée Ahmed Chawki in Salé.",
+  ],
 ];
 
 const services = [
-  "E-commerce platforms",
+  "E-commerce websites",
+  "Car rental and booking websites",
   "Admin dashboards",
   "Business management systems",
-  "REST API backends",
-  "Responsive frontend interfaces",
-  "Authentication systems",
-  "Database-driven web apps",
+  "Flutter mobile applications",
+  "Backend APIs",
+  "Delivery platform interfaces",
+  "AI / computer vision solutions",
 ];
 
 const proof = [
-  ["4", "featured product builds"],
-  ["7+", "frameworks across frontend and backend"],
-  ["Full", "product lifecycle ownership"],
-  ["API", "first backend architecture"],
+  ["6", "focused project areas"],
+  ["State", "engineering degree in software development"],
+  ["IBM", "Docker and Kubernetes certifications"],
+  ["4", "languages: Arabic, French, English, Tamazight"],
 ];
 
 function useLenis() {
@@ -221,6 +254,7 @@ function App() {
       <Services />
       <Proof />
       <Contact />
+      <FloatingContact />
     </main>
   );
 }
@@ -236,7 +270,7 @@ function Navigation({
     <header className="nav-shell">
       <a className="brand" href="#top" aria-label="Mohamed El Khalfi home">
         <span>MEK</span>
-        <small>Full-Stack Engineer</small>
+        <small>Web & Mobile Developer</small>
       </a>
       <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
         {navItems.map((item) => (
@@ -268,11 +302,11 @@ function Hero() {
           <span>El Khalfi</span>
         </h1>
         <p className="hero-subtitle" data-reveal>
-          Full-Stack Engineer building modern, scalable, and user-friendly web applications.
+          Full-Stack Engineer · Web & Mobile App Developer
         </p>
         <p className="hero-description" data-reveal>
-          I design and develop complete digital products using Laravel, React, Vue, Angular, Django,
-          Spring Boot, and modern frontend/backend tools.
+          I build modern web platforms, Flutter mobile apps, and business management systems with
+          clean interfaces, secure APIs, and scalable databases.
         </p>
         <div className="hero-actions" data-reveal>
           <a className="button primary" href="#projects">
@@ -296,18 +330,18 @@ function Hero() {
           </div>
           <pre>{`const engineer = {
   name: "Mohamed El Khalfi",
-  focus: ["frontend", "backend", "APIs"],
-  stack: ["Laravel", "React", "Vue", "Angular"],
-  ships: "useful web platforms"
+  focus: ["web platforms", "mobile apps", "business systems"],
+  stack: ["Laravel", "Flutter", "ASP.NET Core", "Angular"],
+  builds: "secure, scalable digital products"
 };`}</pre>
           <div className="terminal-status">
             <span>build passing</span>
             <strong>ready to ship</strong>
           </div>
         </div>
-        <div className="floating-badge badge-react">React</div>
+        <div className="floating-badge badge-react">Flutter</div>
         <div className="floating-badge badge-laravel">Laravel</div>
-        <div className="floating-badge badge-spring">Spring</div>
+        <div className="floating-badge badge-spring">AI</div>
       </div>
     </section>
   );
@@ -325,15 +359,16 @@ function About() {
         </h2>
         <div className="about-panel" data-reveal>
           <p>
-            I am a full-stack engineer passionate about creating clean, practical, and scalable web
-            solutions. I enjoy working across the full product lifecycle, from database design and
-            backend APIs to responsive interfaces and polished user experiences.
+            I am an Ingénieur d'État en Développement Informatique based in Salé, Morocco. I design
+            and develop complete digital solutions, from backend APIs and databases to responsive web
+            interfaces and mobile applications. My work focuses on reliability, performance,
+            usability, and real business needs.
           </p>
           <div className="studio-map">
-            <span>Database</span>
-            <span>API</span>
-            <span>Interface</span>
-            <span>Experience</span>
+            <span>Web Apps</span>
+            <span>Mobile Apps</span>
+            <span>Secure APIs</span>
+            <span>AI Vision</span>
           </div>
         </div>
       </div>
@@ -342,7 +377,7 @@ function About() {
 }
 
 function Stack() {
-  const icons = [Code2, Server, Database, Braces];
+  const icons = [Code2, Server, Braces, Database, ShieldCheck];
 
   return (
     <section className="stack section" id="stack" data-pattern="magnetic-cards">
@@ -419,10 +454,10 @@ function Projects() {
 
 function Journey() {
   return (
-    <section className="journey section" id="journey" data-pattern="scroll-progress-cards">
+    <section className="journey section" id="experience" data-pattern="scroll-progress-cards">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">04 / Journey</span>
-        <h2>From networks to full-stack product systems.</h2>
+        <span className="section-kicker">04 / Experience</span>
+        <h2>Professional experience and engineering background.</h2>
       </div>
       <div className="journey-list">
         {journey.map(([year, title, description]) => (
@@ -471,8 +506,11 @@ function Proof() {
       <div className="proof-visual" data-reveal>
         <div className="system-card">
           <ShieldCheck size={34} />
-          <span>Credibility through shipped project proof</span>
-          <p>No fake testimonials. Just visible scope, stack variety, and practical full-stack output.</p>
+          <span>Credibility through practical engineering proof</span>
+          <p>
+            Focused experience across web platforms, Flutter apps, business systems, databases, and
+            AI / computer vision solutions.
+          </p>
         </div>
       </div>
       <div className="proof-grid">
@@ -492,36 +530,46 @@ function Contact() {
     <section className="contact section" id="contact" data-pattern="reveal-on-scroll">
       <div className="contact-inner" data-reveal>
         <Sparkles size={28} />
-        <h2>Let's build something useful, fast, and beautiful.</h2>
+        <h2>Let's build a reliable digital product.</h2>
         <div className="contact-actions">
           <a href="mailto:mohamed.elkhalfi@example.com" className="button primary">
             <Mail size={18} />
-            Email
+            Contact Me
           </a>
-          <a href="https://github.com/" className="button ghost" target="_blank" rel="noreferrer">
-            <Github size={18} />
-            GitHub
+          <a className="button ghost" href="/Mohamed-El-Khalfi-CV.html" download>
+            <Download size={18} />
+            Download CV
           </a>
-          <a href="https://www.linkedin.com/" className="button ghost" target="_blank" rel="noreferrer">
-            <Linkedin size={18} />
-            LinkedIn
-          </a>
-          <a href="https://wa.me/" className="button ghost" target="_blank" rel="noreferrer">
-            <MessageCircle size={18} />
-            WhatsApp
+          <a href="#projects" className="button ghost">
+            <ArrowDownRight size={18} />
+            View Projects
           </a>
         </div>
         <p>
-          Available for full-stack web platforms, internal tools, dashboards, APIs, and scalable
-          product interfaces.
+          I'm open to opportunities and freelance projects in web development, mobile apps,
+          dashboards, APIs, and business platforms.
         </p>
       </div>
       <footer>
         <span>Mohamed El Khalfi</span>
-        <span>Full-Stack Engineer</span>
+        <span>Full-Stack Engineer · Web & Mobile App Developer</span>
         <a href="#top">Back to top</a>
       </footer>
     </section>
+  );
+}
+
+function FloatingContact() {
+  return (
+    <a
+      className="floating-contact"
+      href="https://wa.me/212688441461"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contact Mohamed El Khalfi on WhatsApp"
+    >
+      <MessageCircle size={24} />
+    </a>
   );
 }
 
