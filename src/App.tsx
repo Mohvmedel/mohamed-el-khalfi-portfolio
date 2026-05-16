@@ -63,47 +63,57 @@ const stackLayers = [
 
 const projects = [
   {
-    title: "BeautyDoc",
-    type: "E-commerce Website",
-    category: "E-commerce / Web Platform",
-    description:
-      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
-    contribution:
-      "Built a business-ready shopping experience with structured product presentation and responsive pages.",
-    tags: ["E-commerce", "Web Platform", "Responsive UI"],
-    accent: "teal",
-    size: "featured",
-  },
-  {
-    title: "DriveLux",
-    type: "Car Rental Website",
-    category: "Booking / Business Website",
-    description:
-      "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
-    contribution: "Created a clear customer journey for browsing rental vehicles and understanding services.",
-    tags: ["Car Rental", "Booking", "Business Website"],
-    accent: "copper",
-    size: "medium",
-  },
-  {
     title: "Brocli",
-    type: "Web & Mobile Service Platform",
+    type: "Live Web & Mobile Service Platform",
     category: "Service Platform / Mobile App",
-    description:
-      "A service platform connecting clients with service providers, including web features, Flutter mobile app context, API integration, user management, service requests, and data exchange.",
-    contribution: "Contributed to frontend, backend, API integration, UI improvements, and mobile application context.",
+    status: "Live Website",
+    liveUrl: "https://brocli.ma",
+    visual: "/brocli-homepage.png",
+    need: "Create a service platform that connects clients with verified home-service providers.",
+    built:
+      "Contributed to web features, backend integration, API integration, UI improvements, user management, service requests, data exchange, and Flutter mobile application context.",
     tags: ["Laravel", "Flutter", "MySQL", "API REST"],
     accent: "violet",
     size: "featured",
   },
   {
+    title: "BeautyDoc",
+    type: "E-commerce Website",
+    category: "E-commerce / Web Platform",
+    status: "Case Study",
+    need: "Create a clean online shopping experience for beauty and skincare products.",
+    built:
+      "Built a business-ready e-commerce experience with structured product presentation, responsive pages, and a smooth shopping journey.",
+    tags: ["E-commerce", "Web Platform", "Responsive UI"],
+    description:
+      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
+    accent: "teal",
+    size: "medium",
+  },
+  {
+    title: "DriveLux",
+    type: "Car Rental Website",
+    category: "Booking / Business Website",
+    status: "Case Study",
+    need: "Present rental vehicles, services, and booking information in a premium and user-friendly way.",
+    built: "Created a clear customer journey for browsing rental vehicles and understanding services.",
+    tags: ["Car Rental", "Booking", "Business Website"],
+    description:
+      "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
+    accent: "copper",
+    size: "medium",
+  },
+  {
     title: "Delivery Company Design System",
     type: "Full Product Design System",
     category: "Delivery Platform / Design System",
+    status: "Private Project",
+    need: "Create a consistent digital experience for a delivery company across multiple interfaces.",
+    built:
+      "Designed a full product design system covering merchant website interfaces, driver app screens, and reusable platform UI components.",
+    tags: ["Design System", "Merchant Website", "Driver App", "UI System"],
     description:
       "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and reusable platform UI components.",
-    contribution: "Designed a consistent product experience across merchant, driver, and platform interfaces.",
-    tags: ["Design System", "Merchant Website", "Driver App", "UI System"],
     accent: "lime",
     size: "medium",
   },
@@ -111,10 +121,13 @@ const projects = [
     title: "Logistics & Transport Management",
     type: "Management System",
     category: "Logistics / Business Management",
+    status: "Private Project",
+    need: "Help organize transport operations, logistics workflows, and internal business processes.",
+    built:
+      "Worked on analysis, database structure, functional modules, workflow organization, testing, and improvement of the solution.",
+    tags: ["ASP.NET", "Flutter", "Management System"],
     description:
       "A logistics and transport management system designed to track operations, organize flows, manage transport processes, and improve internal business operations.",
-    contribution: "Worked on analysis, database structure, functional modules, testing, and improvement of the solution.",
-    tags: ["ASP.NET", "Flutter", "Management System"],
     accent: "teal",
     size: "technical",
   },
@@ -122,10 +135,13 @@ const projects = [
     title: "Intelligent HSE Monitoring",
     type: "AI / Computer Vision System",
     category: "Safety / AI Management System",
+    status: "Case Study",
+    need: "Improve safety monitoring by detecting non-compliance cases from video streams.",
+    built:
+      "Built an AI-oriented safety monitoring system using computer vision models and a structured web system for operational tracking.",
+    tags: ["Python", "OpenCV", "YOLO", "ASP.NET Core", "Angular"],
     description:
       "An intelligent HSE system for monitoring safety measures using computer vision, detecting non-compliance cases, and supporting real-time operational tracking.",
-    contribution: "Built an AI-oriented solution using computer vision models and a structured web system.",
-    tags: ["Python", "OpenCV", "YOLO", "ASP.NET Core", "Angular"],
     accent: "copper",
     size: "technical",
   },
@@ -155,7 +171,12 @@ const journey = [
   [
     "Education",
     "ISMAGI - Rabat",
-    "Ingénieur d'État en Développement Informatique, October 2022 - July 2025. Classe Préparatoire at ISMAGI, October 2020 - July 2022.",
+    "Ingénieur d'État en Développement Informatique, October 2022 - July 2025.",
+  ],
+  [
+    "Education",
+    "ISMAGI - Rabat",
+    "Classe Préparatoire, October 2020 - July 2022.",
   ],
   [
     "Academic",
@@ -170,19 +191,39 @@ const journey = [
 ];
 
 const services = [
-  "Web Platforms - E-commerce, booking, service, and business websites",
-  "Mobile Applications - Flutter apps connected to backend APIs",
-  "Management Systems - Logistics, transport, orders, users, roles, and workflows",
-  "Admin Dashboards - Activity monitoring, data management, and performance tracking",
-  "Backend APIs - Secure REST APIs, authentication, roles, and business logic",
-  "AI / Computer Vision Solutions - Detection and monitoring with OpenCV and YOLO",
+  "Businesses that need an online platform - E-commerce, booking, service platforms, and customer-facing websites",
+  "Teams that need better internal organization - Management systems, dashboards, workflows, roles, and data tracking",
+  "Products that need mobile access - Flutter apps for clients, drivers, service providers, and internal users",
+  "Operations that need automation and visibility - APIs, databases, reporting, admin panels, and process tracking",
 ];
 
 const proof = [
-  ["7", "featured digital solution projects"],
-  ["Full", "web, mobile, API, database, and management systems"],
-  ["IBM", "Docker and Kubernetes certifications"],
-  ["4", "languages: Arabic, French, English, Tamazight"],
+  ["Live", "Brocli.ma service platform"],
+  ["Web", "BeautyDoc and DriveLux platforms"],
+  ["Mobile", "Flutter apps and driver/service app contexts"],
+  ["Systems", "Logistics, mission orders, dashboards, workflows"],
+  ["AI", "OpenCV and YOLO-based safety monitoring"],
+  ["DevOps", "Docker, Kubernetes, and CI/CD foundation"],
+  ["IBM", "Docker Essentials and Kubernetes Operators Advanced"],
+];
+
+const whyWork = [
+  [
+    "I understand the full product",
+    "From interface and user experience to backend logic, databases, APIs, and deployment.",
+  ],
+  [
+    "I build for real business needs",
+    "I focus on systems that help organize workflows, manage data, save time, and improve operations.",
+  ],
+  [
+    "I combine structure with creativity",
+    "I create solutions that are technically reliable, but also clean, modern, and easy to use.",
+  ],
+  [
+    "I can join a team and add value",
+    "I adapt quickly, communicate clearly, and contribute across frontend, backend, mobile, and system design.",
+  ],
 ];
 
 function useLenis() {
@@ -311,6 +352,7 @@ function App() {
       <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Hero />
       <About />
+      <WhyWork />
       <Stack />
       <Projects />
       <Journey />
@@ -335,7 +377,7 @@ function Navigation({
         <span>
           <img src="/logo-portfolio.png" alt="" />
         </span>
-        <small>Web & Mobile Developer</small>
+        <small>Full-Stack Engineer</small>
       </a>
       <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
         {navItems.map((item) => (
@@ -370,9 +412,9 @@ function Hero() {
           Full-Stack Engineer
         </p>
         <p className="hero-description" data-reveal>
-          Web · Mobile · Management Systems. I build modern digital solutions for businesses, from
-          web platforms and Flutter mobile apps to management systems, admin dashboards, secure APIs,
-          and scalable databases.
+          Web · Mobile · Management Systems. I help businesses turn ideas and operational problems
+          into reliable digital solutions — from web platforms and Flutter mobile apps to dashboards,
+          APIs, databases, and management systems.
         </p>
         <div className="hero-actions" data-reveal>
           <a className="button primary" href="#projects">
@@ -396,18 +438,21 @@ function Hero() {
           </div>
           <pre>{`const engineer = {
   name: "Mohamed El Khalfi",
-  focus: ["web", "mobile", "management systems"],
-  stack: ["Laravel", "Flutter", "ASP.NET Core", "Angular"],
-  builds: "complete digital solutions"
+  role: "Full-Stack Engineer",
+  builds: ["web platforms", "mobile apps", "management systems"],
+  coreStack: ["Laravel", "Spring Boot", "ASP.NET Core", "Flutter"],
+  edge: ["AI / Vision", "Docker", "Kubernetes"],
 };`}</pre>
           <div className="terminal-status">
             <span>build passing</span>
             <strong>ready to ship</strong>
           </div>
         </div>
-        <div className="floating-badge badge-react">Flutter</div>
-        <div className="floating-badge badge-laravel">Laravel</div>
-        <div className="floating-badge badge-spring">AI</div>
+        <div className="floating-badge badge-react">Laravel</div>
+        <div className="floating-badge badge-laravel">Flutter</div>
+        <div className="floating-badge badge-spring">Spring Boot</div>
+        <div className="floating-badge badge-asp">ASP.NET Core</div>
+        <div className="floating-badge badge-ai">AI / Vision</div>
       </div>
     </section>
   );
@@ -421,21 +466,57 @@ function About() {
       </div>
       <div className="about-grid">
         <h2 data-reveal>
-          Web platforms, mobile applications, and management systems.
+          Web platforms, mobile apps, and management systems.
         </h2>
         <div className="about-panel" data-reveal>
           <p>
             I am an Ingénieur d'État en Développement Informatique based in Salé, Morocco. I design
             and develop complete digital solutions adapted to real business needs, including web
-            applications, mobile apps, management systems, backend APIs, databases, dashboards, and
+            platforms, mobile apps, management systems, backend APIs, databases, dashboards, and
             deployment workflows.
           </p>
+          <p>
+            I do more than implement features. I analyze the need, structure the solution, design the
+            user flow, build the backend logic, connect the database, and deliver an interface that
+            feels clear, reliable, and professional.
+          </p>
           <div className="studio-map">
-            <span>Web Platforms: e-commerce, booking, service apps</span>
-            <span>Mobile Applications: Flutter apps connected to APIs</span>
-            <span>Management Systems: logistics, orders, workflows</span>
+            <span>
+              <strong>Web Platforms</strong>
+              E-commerce platforms, booking websites, service platforms, and responsive business
+              applications.
+            </span>
+            <span>
+              <strong>Mobile Apps</strong>
+              Flutter mobile apps connected to secure APIs for clients, drivers, service providers,
+              and business users.
+            </span>
+            <span>
+              <strong>Management Systems</strong>
+              Dashboards, workflows, logistics systems, role management, CRUD systems, and internal
+              operations.
+            </span>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyWork() {
+  return (
+    <section className="why section" data-pattern="reveal-on-scroll">
+      <div className="section-header" data-reveal>
+        <span className="section-kicker">02 / Why Work With Me</span>
+        <h2>Product-minded engineering for real business needs.</h2>
+      </div>
+      <div className="why-grid">
+        {whyWork.map(([title, text]) => (
+          <article className="why-card" key={title} data-reveal>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -447,10 +528,11 @@ function Stack() {
   return (
     <section className="stack section" id="stack" data-pattern="magnetic-cards">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">02 / Technology Stack</span>
-        <h2>Tools for building complete digital solutions.</h2>
+        <span className="section-kicker">03 / Technology Stack</span>
+        <h2>How I build complete digital products.</h2>
         <p className="section-subtitle">
-          From interface design to backend APIs, mobile apps, databases, and deployment workflows.
+          From interfaces and APIs to mobile apps, databases, deployment workflows, and intelligent
+          systems.
         </p>
       </div>
       <div className="stack-architecture">
@@ -487,7 +569,7 @@ function Projects() {
   return (
     <section className="projects-scroll" id="projects" data-pattern="horizontal-on-vertical">
       <div className="project-intro">
-        <span className="section-kicker">03 / Featured Projects</span>
+        <span className="section-kicker">04 / Featured Projects</span>
         <h2>Selected builds with real product shape.</h2>
         <p className="section-subtitle">
           A focused selection of web platforms, mobile applications, management systems, and business
@@ -509,24 +591,39 @@ function Projects() {
                 <span />
               </div>
               <div className="mockup-grid" aria-hidden="true">
-                <i>{project.type}</i>
-                <i>{project.category}</i>
-                <i>{project.tags[0]}</i>
-                <i>{project.tags[1]}</i>
+                {"visual" in project && project.visual ? (
+                  <img src={project.visual} alt={`${project.title} homepage screenshot`} loading="lazy" />
+                ) : (
+                  <>
+                    <i>{project.type}</i>
+                    <i>{project.category}</i>
+                    <i>{project.tags[0]}</i>
+                    <i>{project.tags[1]}</i>
+                  </>
+                )}
               </div>
             </div>
             <div className="project-content">
               <span className="project-index">0{index + 1}</span>
-              <small>{project.category}</small>
+              <small>{project.status}</small>
               <h3>{project.title}</h3>
               <strong>{project.type}</strong>
-              <p>{project.description}</p>
-              <p className="project-contribution">{project.contribution}</p>
+              <p>
+                <b>Need:</b> {project.need}
+              </p>
+              <p className="project-contribution">
+                <b>Built:</b> {project.built}
+              </p>
               <div className="project-tags">
                 {project.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
+              {"liveUrl" in project && project.liveUrl ? (
+                <a className="project-link" href={project.liveUrl} target="_blank" rel="noreferrer">
+                  Visit live project <ArrowUpRight size={16} />
+                </a>
+              ) : null}
             </div>
           </motion.article>
         ))}
@@ -539,7 +636,7 @@ function Journey() {
   return (
     <section className="journey section" id="experience" data-pattern="scroll-progress-cards">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">04 / Experience</span>
+        <span className="section-kicker">05 / Experience</span>
         <h2>Professional experience and engineering background.</h2>
       </div>
       <div className="journey-list">
@@ -561,8 +658,8 @@ function Services() {
   return (
     <section className="services section" data-pattern="sticky-stack">
       <div className="services-sticky" data-reveal>
-        <span className="section-kicker">05 / What I Can Build</span>
-        <h2>What I Build</h2>
+        <span className="section-kicker">06 / Problems I Help Solve</span>
+        <h2>Problems I help solve</h2>
       </div>
       <div className="service-list">
         {services.map((service, index) => (
@@ -589,11 +686,10 @@ function Proof() {
       <div className="proof-visual" data-reveal>
         <div className="system-card">
           <ShieldCheck size={34} />
-          <span>Credibility through practical engineering proof</span>
+          <span>Proof through real digital products.</span>
           <p>
-            Focused experience across web applications, mobile applications, management systems,
-            admin dashboards, backend APIs, database-driven platforms, delivery and logistics
-            systems, and AI / computer vision solutions.
+            My work combines frontend interfaces, backend APIs, mobile apps, databases, dashboards,
+            deployment workflows, and business-oriented systems.
           </p>
         </div>
       </div>
