@@ -560,10 +560,14 @@ function Contact() {
 }
 
 function FloatingContact() {
+  const whatsappMessage = encodeURIComponent(
+    "Hello Mohamed, I saw your portfolio and would like to discuss a web, mobile, or business platform project with you."
+  );
+
   return (
     <a
       className="floating-contact"
-      href="https://wa.me/212688441461"
+      href={`https://wa.me/212688441461?text=${whatsappMessage}`}
       target="_blank"
       rel="noreferrer"
       aria-label="Contact Mohamed El Khalfi on WhatsApp"
