@@ -21,7 +21,13 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const navItems = ["About", "Stack", "Projects", "Experience", "Contact"];
+const navItems = [
+  ["Product-minded engineer", "about"],
+  ["Architecture stack", "stack"],
+  ["Selected builds", "projects"],
+  ["Field experience", "experience"],
+  ["Start a build", "contact"],
+];
 
 const stackLayers = [
   {
@@ -66,13 +72,13 @@ const projects = [
     title: "Brocli",
     type: "Live Web & Mobile Service Platform",
     category: "Service Platform / Mobile App",
-    status: "Live Website",
+    status: "Live Product",
     liveUrl: "https://brocli.ma",
     visual: "/brocli-homepage.png",
-    need: "Create a service platform that connects clients with verified home-service providers.",
-    built:
-      "Contributed to web features, backend integration, API integration, UI improvements, user management, service requests, data exchange, and Flutter mobile application context.",
+    problem: "Connect clients with verified service providers.",
+    build: "Web features, API integration, service flows, and Flutter mobile context.",
     tags: ["Laravel", "Flutter", "MySQL", "API REST"],
+    proof: "brocli.ma",
     accent: "violet",
     size: "featured",
   },
@@ -80,13 +86,11 @@ const projects = [
     title: "BeautyDoc",
     type: "E-commerce Website",
     category: "E-commerce / Web Platform",
-    status: "Case Study",
-    need: "Create a clean online shopping experience for beauty and skincare products.",
-    built:
-      "Built a business-ready e-commerce experience with structured product presentation, responsive pages, and a smooth shopping journey.",
+    status: "Delivered Build",
+    problem: "Create a clean online shopping experience for beauty and skincare products.",
+    build: "Structured product presentation, responsive pages, and a smooth shopping journey.",
     tags: ["E-commerce", "Web Platform", "Responsive UI"],
-    description:
-      "A modern e-commerce website for beauty and skincare products, focused on clean product presentation, responsive design, and a smooth shopping experience.",
+    proof: "Business-ready product flow",
     accent: "teal",
     size: "medium",
   },
@@ -94,12 +98,11 @@ const projects = [
     title: "DriveLux",
     type: "Car Rental Website",
     category: "Booking / Business Website",
-    status: "Case Study",
-    need: "Present rental vehicles, services, and booking information in a premium and user-friendly way.",
-    built: "Created a clear customer journey for browsing rental vehicles and understanding services.",
+    status: "Delivered Build",
+    problem: "Present rental vehicles, services, and booking information clearly.",
+    build: "A premium browsing journey for vehicles, services, and booking details.",
     tags: ["Car Rental", "Booking", "Business Website"],
-    description:
-      "A car rental website designed to present vehicles, services, and booking information with a premium and user-friendly experience.",
+    proof: "Customer-facing business interface",
     accent: "copper",
     size: "medium",
   },
@@ -107,13 +110,11 @@ const projects = [
     title: "Delivery Company Design System",
     type: "Full Product Design System",
     category: "Delivery Platform / Design System",
-    status: "Private Project",
-    need: "Create a consistent digital experience for a delivery company across multiple interfaces.",
-    built:
-      "Designed a full product design system covering merchant website interfaces, driver app screens, and reusable platform UI components.",
+    status: "In Progress",
+    problem: "Create a consistent delivery experience across multiple interfaces.",
+    build: "Merchant website interfaces, driver app screens, and reusable platform UI components.",
     tags: ["Design System", "Merchant Website", "Driver App", "UI System"],
-    description:
-      "A complete design system for a delivery company, including merchant website interfaces, driver app screens, and reusable platform UI components.",
+    proof: "Delivery ecosystem UI direction",
     accent: "lime",
     size: "medium",
   },
@@ -121,13 +122,11 @@ const projects = [
     title: "Logistics & Transport Management",
     type: "Management System",
     category: "Logistics / Business Management",
-    status: "Private Project",
-    need: "Help organize transport operations, logistics workflows, and internal business processes.",
-    built:
-      "Worked on analysis, database structure, functional modules, workflow organization, testing, and improvement of the solution.",
+    status: "Private System",
+    problem: "Organize transport operations, logistics workflows, and internal processes.",
+    build: "Analysis, database structure, functional modules, workflow organization, and testing.",
     tags: ["ASP.NET", "Flutter", "Management System"],
-    description:
-      "A logistics and transport management system designed to track operations, organize flows, manage transport processes, and improve internal business operations.",
+    proof: "Operational management modules",
     accent: "teal",
     size: "technical",
   },
@@ -135,13 +134,11 @@ const projects = [
     title: "Intelligent HSE Monitoring",
     type: "AI / Computer Vision System",
     category: "Safety / AI Management System",
-    status: "Case Study",
-    need: "Improve safety monitoring by detecting non-compliance cases from video streams.",
-    built:
-      "Built an AI-oriented safety monitoring system using computer vision models and a structured web system for operational tracking.",
+    status: "Technical Build",
+    problem: "Detect safety non-compliance cases from video streams.",
+    build: "Computer vision models and a structured web system for operational tracking.",
     tags: ["Python", "OpenCV", "YOLO", "ASP.NET Core", "Angular"],
-    description:
-      "An intelligent HSE system for monitoring safety measures using computer vision, detecting non-compliance cases, and supporting real-time operational tracking.",
+    proof: "AI / Vision safety monitoring",
     accent: "copper",
     size: "technical",
   },
@@ -197,33 +194,55 @@ const services = [
   "Operations that need automation and visibility - APIs, databases, reporting, admin panels, and process tracking",
 ];
 
-const proof = [
-  ["Live", "Brocli.ma service platform"],
-  ["Web", "BeautyDoc and DriveLux platforms"],
-  ["Mobile", "Flutter apps and driver/service app contexts"],
-  ["Systems", "Logistics, mission orders, dashboards, workflows"],
-  ["AI", "OpenCV and YOLO-based safety monitoring"],
-  ["DevOps", "Docker, Kubernetes, and CI/CD foundation"],
-  ["IBM", "Docker Essentials and Kubernetes Operators Advanced"],
+const proofSignals = [
+  { label: "LIVE PRODUCT", text: "Brocli.ma service platform" },
+  { label: "DELIVERED BUILDS", text: "BeautyDoc · DriveLux" },
+  { label: "MOBILE CONTEXT", text: "Flutter apps · Driver/service flows" },
+  { label: "MANAGEMENT SYSTEMS", text: "Logistics · Mission orders · Dashboards · Workflows" },
+  { label: "AI / VISION", text: "OpenCV · YOLO safety monitoring" },
+  { label: "DEVOPS FOUNDATION", text: "Docker · Kubernetes · CI/CD" },
+  { label: "CERTIFICATIONS", text: "IBM Docker · IBM Kubernetes" },
 ];
 
-const whyWork = [
-  [
-    "I understand the full product",
-    "From interface and user experience to backend logic, databases, APIs, and deployment.",
-  ],
-  [
-    "I build for real business needs",
-    "I focus on systems that help organize workflows, manage data, save time, and improve operations.",
-  ],
-  [
-    "I combine structure with creativity",
-    "I create solutions that are technically reliable, but also clean, modern, and easy to use.",
-  ],
-  [
-    "I can join a team and add value",
-    "I adapt quickly, communicate clearly, and contribute across frontend, backend, mobile, and system design.",
-  ],
+const proofIndex = [
+  ["01", "Product proof"],
+  ["02", "System proof"],
+  ["03", "Technical proof"],
+];
+
+const valueEngine = [
+  {
+    number: "01",
+    title: "Understand",
+    keywords: "Business needs · Users · Workflows",
+    text: "I start by understanding the real problem before writing code.",
+  },
+  {
+    number: "02",
+    title: "Structure",
+    keywords: "Modules · Data · APIs · User flows",
+    text: "I organize the solution into clear, scalable parts.",
+  },
+  {
+    number: "03",
+    title: "Build",
+    keywords: "Web · Mobile · Backend · Dashboards",
+    text: "I develop complete systems with clean interfaces and reliable logic.",
+  },
+  {
+    number: "04",
+    title: "Improve",
+    keywords: "Testing · UX · Performance · Reliability",
+    text: "I refine the product so it becomes useful, stable, and easy to use.",
+  },
+];
+
+const heroTechBadges = [
+  { label: "Laravel", className: "badge-laravel", iconSrc: "https://cdn.simpleicons.org/laravel/FF2D20" },
+  { label: "Spring Boot", className: "badge-spring", iconSrc: "https://cdn.simpleicons.org/springboot/6DB33F" },
+  { label: "ASP.NET Core", className: "badge-asp", iconSrc: "https://cdn.simpleicons.org/dotnet/8F8CFF" },
+  { label: "Flutter", className: "badge-flutter", iconSrc: "https://cdn.simpleicons.org/flutter/51D6C7" },
+  { label: "AI / Vision", className: "badge-ai", iconSrc: "https://cdn.simpleicons.org/opencv/C4EF6A" },
 ];
 
 function useLenis() {
@@ -380,9 +399,9 @@ function Navigation({
         <small>Full-Stack Engineer</small>
       </a>
       <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
-            {item}
+        {navItems.map(([label, href]) => (
+          <a key={href} href={`#${href}`} onClick={() => setMenuOpen(false)}>
+            {label}
           </a>
         ))}
       </nav>
@@ -448,13 +467,32 @@ function Hero() {
             <strong>ready to ship</strong>
           </div>
         </div>
-        <div className="floating-badge badge-react">Laravel</div>
-        <div className="floating-badge badge-laravel">Flutter</div>
-        <div className="floating-badge badge-spring">Spring Boot</div>
-        <div className="floating-badge badge-asp">ASP.NET Core</div>
-        <div className="floating-badge badge-ai">AI / Vision</div>
+        <div className="tech-orbit" aria-hidden="true">
+          {heroTechBadges.map((badge) => (
+            <TechBadge key={badge.label} {...badge} />
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+function TechBadge({
+  label,
+  iconSrc,
+  className,
+}: {
+  label: string;
+  iconSrc: string;
+  className: string;
+}) {
+  return (
+    <div className={`floating-badge tech-badge ${className}`} title={label}>
+      <span className="tech-icon">
+        <img src={iconSrc} alt="" loading="lazy" />
+      </span>
+      <span className="tech-label">{label}</span>
+    </div>
   );
 }
 
@@ -462,7 +500,7 @@ function About() {
   return (
     <section className="about section" id="about" data-pattern="pinned-scrub">
       <div className="section-kicker" data-reveal>
-        01 / Positioning
+        01 / Product-minded engineer
       </div>
       <div className="about-grid">
         <h2 data-reveal>
@@ -470,31 +508,25 @@ function About() {
         </h2>
         <div className="about-panel" data-reveal>
           <p>
-            I am an Ingénieur d'État en Développement Informatique based in Salé, Morocco. I design
-            and develop complete digital solutions adapted to real business needs, including web
-            platforms, mobile apps, management systems, backend APIs, databases, dashboards, and
-            deployment workflows.
+            I'm a full-stack engineer based in Salé, Morocco. I design and build complete digital
+            solutions for real business needs — from interfaces and APIs to databases, dashboards,
+            mobile apps, and deployment workflows.
           </p>
-          <p>
-            I do more than implement features. I analyze the need, structure the solution, design the
-            user flow, build the backend logic, connect the database, and deliver an interface that
-            feels clear, reliable, and professional.
+          <p className="about-statement">
+            My strength is connecting technical structure with creative problem-solving.
           </p>
           <div className="studio-map">
             <span>
-              <strong>Web Platforms</strong>
-              E-commerce platforms, booking websites, service platforms, and responsive business
-              applications.
+              <strong>Build</strong>
+              Web platforms · Mobile apps · Management systems
             </span>
             <span>
-              <strong>Mobile Apps</strong>
-              Flutter mobile apps connected to secure APIs for clients, drivers, service providers,
-              and business users.
+              <strong>Connect</strong>
+              APIs · Databases · Dashboards · Workflows
             </span>
             <span>
-              <strong>Management Systems</strong>
-              Dashboards, workflows, logistics systems, role management, CRUD systems, and internal
-              operations.
+              <strong>Deliver</strong>
+              Clean interfaces · Reliable logic · Business-ready solutions
             </span>
           </div>
         </div>
@@ -504,19 +536,33 @@ function About() {
 }
 
 function WhyWork() {
+  const icons = [ShieldCheck, Braces, Code2, Sparkles];
+
   return (
     <section className="why section" data-pattern="reveal-on-scroll">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">02 / Why Work With Me</span>
-        <h2>Product-minded engineering for real business needs.</h2>
+        <span className="section-kicker">02 / Proof signals</span>
+        <h2>From business problem to reliable product.</h2>
+        <p className="section-subtitle">
+          A simple process that helps me move from unclear needs to useful digital systems.
+        </p>
       </div>
-      <div className="why-grid">
-        {whyWork.map(([title, text]) => (
-          <article className="why-card" key={title} data-reveal>
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </article>
-        ))}
+      <div className="value-engine" aria-label="Engineering loop">
+        {valueEngine.map((step, index) => {
+          const Icon = icons[index];
+
+          return (
+            <article className="engine-step" key={step.title} data-reveal>
+              <div className="engine-step-top">
+                <span>{step.number}</span>
+                <Icon size={21} />
+              </div>
+              <h3>{step.title}</h3>
+              <strong>{step.keywords}</strong>
+              <p>{step.text}</p>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
@@ -528,7 +574,7 @@ function Stack() {
   return (
     <section className="stack section" id="stack" data-pattern="magnetic-cards">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">03 / Technology Stack</span>
+        <span className="section-kicker">03 / Architecture stack</span>
         <h2>How I build complete digital products.</h2>
         <p className="section-subtitle">
           From interfaces and APIs to mobile apps, databases, deployment workflows, and intelligent
@@ -569,7 +615,7 @@ function Projects() {
   return (
     <section className="projects-scroll" id="projects" data-pattern="horizontal-on-vertical">
       <div className="project-intro">
-        <span className="section-kicker">04 / Featured Projects</span>
+        <span className="section-kicker">04 / Selected builds</span>
         <h2>Selected builds with real product shape.</h2>
         <p className="section-subtitle">
           A focused selection of web platforms, mobile applications, management systems, and business
@@ -604,16 +650,33 @@ function Projects() {
               </div>
             </div>
             <div className="project-content">
-              <span className="project-index">0{index + 1}</span>
-              <small>{project.status}</small>
+              <div className="project-meta">
+                <span className="project-index">0{index + 1}</span>
+                <small className="project-signal">
+                  <i />
+                  {project.status}
+                </small>
+              </div>
               <h3>{project.title}</h3>
               <strong>{project.type}</strong>
-              <p>
-                <b>Need:</b> {project.need}
-              </p>
-              <p className="project-contribution">
-                <b>Built:</b> {project.built}
-              </p>
+              <dl className="project-file">
+                <div>
+                  <dt>Problem</dt>
+                  <dd>{project.problem}</dd>
+                </div>
+                <div>
+                  <dt>Build</dt>
+                  <dd>{project.build}</dd>
+                </div>
+                <div>
+                  <dt>Stack</dt>
+                  <dd>{project.tags.join(" · ")}</dd>
+                </div>
+                <div>
+                  <dt>Proof</dt>
+                  <dd>{project.proof}</dd>
+                </div>
+              </dl>
               <div className="project-tags">
                 {project.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
@@ -621,7 +684,7 @@ function Projects() {
               </div>
               {"liveUrl" in project && project.liveUrl ? (
                 <a className="project-link" href={project.liveUrl} target="_blank" rel="noreferrer">
-                  Visit live project <ArrowUpRight size={16} />
+                  Open proof <ArrowUpRight size={16} />
                 </a>
               ) : null}
             </div>
@@ -636,12 +699,12 @@ function Journey() {
   return (
     <section className="journey section" id="experience" data-pattern="scroll-progress-cards">
       <div className="section-header" data-reveal>
-        <span className="section-kicker">05 / Experience</span>
+        <span className="section-kicker">05 / Field experience</span>
         <h2>Professional experience and engineering background.</h2>
       </div>
       <div className="journey-list">
-        {journey.map(([year, title, description]) => (
-          <div className="journey-item" key={year}>
+        {journey.map(([year, title, description], index) => (
+          <div className="journey-item" key={`${year}-${title}-${index}`}>
             <span className="journey-year">{year}</span>
             <article className="journey-card">
               <h3>{title}</h3>
@@ -658,7 +721,7 @@ function Services() {
   return (
     <section className="services section" data-pattern="sticky-stack">
       <div className="services-sticky" data-reveal>
-        <span className="section-kicker">06 / Problems I Help Solve</span>
+        <span className="section-kicker">06 / Problems I help solve</span>
         <h2>Problems I help solve</h2>
       </div>
       <div className="service-list">
@@ -685,19 +748,30 @@ function Proof() {
     <section className="proof section" data-pattern="masked-image-reveal">
       <div className="proof-visual" data-reveal>
         <div className="system-card">
-          <ShieldCheck size={34} />
-          <span>Proof through real digital products.</span>
+          <div className="proof-card-top">
+            <span>Proof signals</span>
+            <ShieldCheck size={34} />
+          </div>
+          <strong>Real builds. Real systems. Real proof.</strong>
           <p>
-            My work combines frontend interfaces, backend APIs, mobile apps, databases, dashboards,
-            deployment workflows, and business-oriented systems.
+            A focused mix of live products, delivered projects, management systems, mobile apps,
+            AI/Vision work, and deployment foundations.
           </p>
+          <div className="proof-index" aria-label="Proof index">
+            {proofIndex.map(([number, label]) => (
+              <span key={label}>
+                <b>{number}</b>
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
       <div className="proof-grid">
-        {proof.map(([value, label]) => (
-          <div className="proof-item" key={label} data-reveal>
-            <strong>{value}</strong>
-            <span>{label}</span>
+        {proofSignals.map((signal) => (
+          <div className="proof-item" key={signal.label} data-reveal>
+            <strong>{signal.label}</strong>
+            <span>{signal.text}</span>
           </div>
         ))}
       </div>
@@ -712,7 +786,7 @@ function Contact() {
         <Sparkles size={28} />
         <h2>Let's build a reliable digital solution.</h2>
         <div className="contact-actions">
-          <a href="mailto:mohamed.elkhalfi@example.com" className="button primary">
+          <a href="mailto:mohvmedelkhvlfi@gmail.com" className="button primary">
             <Mail size={18} />
             Contact Me
           </a>
