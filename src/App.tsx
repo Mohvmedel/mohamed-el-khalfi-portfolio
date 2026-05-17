@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -379,6 +380,7 @@ function App() {
       <Proof />
       <Contact />
       <FloatingContact />
+      <Analytics />
     </main>
   );
 }
