@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -7,6 +7,8 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Braces,
+  ChevronLeft,
+  ChevronRight,
   Code2,
   Database,
   Download,
@@ -187,12 +189,42 @@ const journey = [
   ],
 ];
 
-const services = [
-  "Businesses that need an online platform - E-commerce, booking, service platforms, and customer-facing websites",
-  "Teams that need better internal organization - Management systems, dashboards, workflows, roles, and data tracking",
-  "Products that need mobile access - Flutter apps for clients, drivers, service providers, and internal users",
-  "Operations that need automation and visibility - APIs, databases, reporting, admin panels, and process tracking",
+const PROBLEMS = [
+  {
+    id: "01",
+    title: "Launch Online",
+    description:
+      "For businesses that need e-commerce, booking, service platforms, or customer-facing websites.",
+    build: "E-commerce · Booking · Service platforms",
+    image: "/projects/Launch%20Online.png",
+  },
+  {
+    id: "02",
+    title: "Organize Operations",
+    description:
+      "For teams that need better internal control through dashboards, workflows, roles, and data tracking.",
+    build: "Dashboards · Workflows · Roles · Data tracking",
+    image: "/projects/Organize%20Operations.png",
+  },
+  {
+    id: "03",
+    title: "Go Mobile",
+    description:
+      "For products that need Flutter apps for clients, drivers, service providers, or internal users.",
+    build: "Flutter apps · Driver apps · Service apps",
+    image: "/projects/Go%20Mobile.png",
+  },
+  {
+    id: "04",
+    title: "Automate Visibility",
+    description:
+      "For operations that need APIs, databases, reporting, admin panels, and process tracking.",
+    build: "APIs · Databases · Reporting · Admin panels",
+    image: "/projects/Automate%20Visibility.png",
+  },
 ];
+
+const PROBLEM_AUTOPLAY_MS = 5000;
 
 const proofSignals = [
   { label: "LIVE PRODUCT", text: "Brocli.ma service platform" },
@@ -718,28 +750,154 @@ function Journey() {
 }
 
 function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setActiveIndex((current) => (current + 1) % PROBLEMS.length);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setDirection(-1);
+    setActiveIndex((current) => (current - 1 + PROBLEMS.length) % PROBLEMS.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = window.setInterval(handleNext, PROBLEM_AUTOPLAY_MS);
+    return () => window.clearInterval(interval);
+  }, [handleNext, isPaused]);
+
+  const previewVariants = {
+    enter: (motionDirection: number) => ({
+      y: motionDirection > 0 ? "-14%" : "14%",
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (motionDirection: number) => ({
+      y: motionDirection > 0 ? "14%" : "-14%",
+      opacity: 0,
+      scale: 0.98,
+    }),
+  };
+
   return (
     <section className="services section" data-pattern="sticky-stack">
       <div className="services-sticky" data-reveal>
         <span className="section-kicker">06 / Problems I help solve</span>
-        <h2>Problems I help solve</h2>
+        <h2>Problems I turn into systems.</h2>
+        <p className="section-subtitle">
+          I transform business needs into web platforms, mobile apps, dashboards, APIs, and
+          management systems.
+        </p>
+
+        <div className="problem-tabs" role="tablist" aria-label="Problem solver categories">
+          {PROBLEMS.map((problem, index) => (
+            <button
+              className={activeIndex === index ? "problem-tab active" : "problem-tab"}
+              key={problem.id}
+              type="button"
+              role="tab"
+              aria-selected={activeIndex === index}
+              onClick={() => {
+                if (activeIndex === index) return;
+                setDirection(index > activeIndex ? 1 : -1);
+                setActiveIndex(index);
+                setIsPaused(false);
+              }}
+            >
+              <span className="problem-progress" aria-hidden="true">
+                {activeIndex === index ? (
+                  <motion.span
+                    key={`${problem.id}-${isPaused}`}
+                    initial={{ height: "0%" }}
+                    animate={isPaused ? { height: "0%" } : { height: "100%" }}
+                    transition={{ duration: PROBLEM_AUTOPLAY_MS / 1000, ease: "linear" }}
+                  />
+                ) : null}
+              </span>
+              <span className="problem-number">/{problem.id}</span>
+              <span className="problem-copy">
+                <strong>{problem.title}</strong>
+                <AnimatePresence mode="wait">
+                  {activeIndex === index ? (
+                    <motion.span
+                      className="problem-detail"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.24 }}
+                    >
+                      <small>{problem.description}</small>
+                      <b>{problem.build}</b>
+                    </motion.span>
+                  ) : null}
+                </AnimatePresence>
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="service-list">
-        {services.map((service, index) => (
+
+      <div
+        className="problem-preview"
+        data-reveal
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
-            className="service-row"
-            key={service}
-            data-reveal
-            whileHover={{ x: 12 }}
-            transition={{ type: "spring", stiffness: 260, damping: 22 }}
+            className="problem-preview-motion"
+            key={PROBLEMS[activeIndex].id}
+            custom={direction}
+            variants={previewVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease: [0.23, 1, 0.32, 1] }}
           >
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{service}</strong>
-            <ArrowUpRight size={24} />
+            <ProblemPreview problem={PROBLEMS[activeIndex]} />
           </motion.div>
-        ))}
+        </AnimatePresence>
+
+        <div className="problem-controls">
+          <button type="button" onClick={handlePrev} aria-label="Previous problem">
+            <ChevronLeft size={18} />
+          </button>
+          <button type="button" onClick={handleNext} aria-label="Next problem">
+            <ChevronRight size={18} />
+          </button>
+        </div>
       </div>
     </section>
+  );
+}
+
+function ProblemPreview({ problem }: { problem: (typeof PROBLEMS)[number] }) {
+  return (
+    <div className={`problem-preview-card problem-preview-${problem.id}`} aria-label={`${problem.title} preview`}>
+      <div className="preview-browser">
+        <span />
+        <span />
+        <span />
+        <small>{problem.title}</small>
+      </div>
+      <div className="preview-image-frame">
+        <img src={problem.image} alt={`${problem.title} product preview`} loading="lazy" />
+        <div className="preview-image-caption">
+          <span>{problem.title}</span>
+          <strong>{problem.build}</strong>
+        </div>
+      </div>
+    </div>
   );
 }
 
